@@ -18,6 +18,9 @@ public class Student {
     private String rank;
     private LocalDate joinDate;
 
+    @Version
+    private int version;
+
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
@@ -29,7 +32,7 @@ public class Student {
 
     @ManyToMany
     @JoinTable(
-            name = "training_session_students", // This is the join table
+            name = "training_session_students",
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "training_session_id")
     )
